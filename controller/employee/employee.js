@@ -1,6 +1,7 @@
-import pool from '../../config/db';
-const getAllEmployees = (req,res) => {
-    res.send("Hello");
+import { executeQuery } from '../../config/db';
+const getAllEmployees = async (req,res) => {
+    let employeeeData = await executeQuery('select * from employee',[]);
+    res.send(employeeeData);
 };
 
 export { getAllEmployees };
